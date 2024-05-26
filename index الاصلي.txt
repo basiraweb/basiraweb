@@ -1,0 +1,185 @@
+
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>»’Ì—… -  œﬁÌﬁ «·„⁄·Ê„« </title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap');
+        body {
+            font-family: 'Tajawal', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            direction: rtl;
+            text-align: right;
+            scroll-behavior: smooth;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        header {
+            background-color: rgba(0, 77, 64, 0.8);
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        .menu-icon {
+            display: inline-block;
+            cursor: pointer;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 30px;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: none;
+            position: absolute;
+            left: 20px;
+            top: 60px;
+            background-color: rgba(0, 77, 64, 0.8);
+            border-radius: 5px;
+            padding: 10px;
+        }
+        nav ul li {
+            margin: 10px 0;
+        }
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+        .background-wrapper {
+            position: relative;
+            width: 100%;
+            height: 200px;
+            background-image: url('profail.jpg');
+            background-size: cover;
+            background-position: center;
+            z-index: 0;
+            margin-top: -60px; 
+        }
+        .content-wrapper {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 20px;
+        }
+        .container {
+            width: 80%;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            margin-top: -100px; 
+        }
+        .show {
+            display: block !important;
+        }
+        footer {
+            background-color: rgba(0, 77, 64, 0.8);
+            color: #ffffff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .social-icons {
+            margin-top: 20px;
+        }
+        .social-icons a {
+            margin: 0 10px;
+            color: #004d40;
+            text-decoration: none;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="menu-icon" onclick="toggleMenu()">?</div>
+        <h1>»’Ì—…</h1>
+        <nav>
+            <ul id="menu">
+                <li><a href="#home" onclick="showContent('home')">«·’›Õ… «·—∆Ì”Ì…</a></li>
+                <li><a href="#latest-news" onclick="showContent('latest-news')">¬Œ— «·√Œ»«—</a>
+                    <ul>
+                        <li><a href="#news1" onclick="showContent('news1')">„Ê÷Ê⁄ «·Œ»— «·√Ê·</a></li>
+                        <li><a href="#news2" onclick="showContent('news2')">„Ê÷Ê⁄ «·Œ»— «·À«‰Ì</a></li>
+                        <li><a href="#news3" onclick="showContent('news3')">„Ê÷Ê⁄ «·Œ»— «·À«·À</a></li>
+                    </ul>
+                </li>
+                <li><a href="#about" onclick="showContent('about')">„‰ ‰Õ‰</a></li>
+                <li><a href="#contact" onclick="showContent('contact')">« ’· »‰«</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="background-wrapper"></div>
+
+    <div class="content-wrapper">
+        <div id="content" class="container">
+            <!-- «·„Õ ÊÏ ÌŸÂ— Â‰« -->
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 »’Ì—…. Ã„Ì⁄ «·ÕﬁÊﬁ „Õ›ÊŸ….</p>
+        <div class="social-icons">
+            <a href="https://www.facebook.com/profile.php?id=61560058580879&mibextid=ZbWKwL" target="_blank">›Ì”»Êﬂ</a>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById('menu');
+            if (menu.style.display === 'block') {
+                menu.style.display = 'none';
+            } else {
+                menu.style.display = 'block';
+            }
+        }
+
+        function showContent(section) {
+            var content = document.getElementById('content');
+            var htmlContent = '';
+            if (section === 'home') {
+                htmlContent = '<h2>«·’›Õ… «·—∆Ì”Ì…</h2><p>„—Õ»« »ﬂ„ ›Ì „Êﬁ⁄ »’Ì—….</p>';
+            } else if (section === 'latest-news') {
+                htmlContent = '<h2>¬Œ— «·√Œ»«—</h2><p> «»⁄Ê« √ÕœÀ «·√Œ»«— Ê«· Õ·Ì·« .</p>';
+            } else if (section === 'news1') {
+                htmlContent = '<h2>„Ê÷Ê⁄ «·Œ»— «·√Ê·</h2><p>‰’ «·Œ»— «·√Ê·...</p>';
+            } else if (section === 'news2') {
+                htmlContent = '<h2>„Ê÷Ê⁄ «·Œ»— «·À«‰Ì</h2><p>‰’ «·Œ»— «·À«‰Ì...</p>';
+            } else if (section === 'news3') {
+                htmlContent = '<h2>„Ê÷Ê⁄ «·Œ»— «·À«·À</h2><p>‰’ «·Œ»— «·À«·À...</p>';
+            } else if (section === 'about') {
+                htmlContent = `
+                    <h2>„‰ ‰Õ‰</h2>
+                    <p>„‰’… »’Ì—… ÂÌ „»«œ—… · œﬁÌﬁ «·„⁄·Ê„«  Êﬂ‘› «·√Œ»«— «·“«∆›…°  Âœ› ≈·Ï  ⁄“Ì“ Àﬁ«›… «· Õﬁﬁ „‰ «·Õﬁ«∆ﬁ ›Ì «·„Ã „⁄.  Ê›— √œÊ«  „ ﬁœ„… ·· Õﬁﬁ „‰ ’Õ… «·„⁄·Ê„«  Ê ÀﬁÌ› «·Ã„ÂÊ— ÕÊ· √Â„Ì… «· Õﬁﬁ ﬁ»·  œ«Ê· «·„⁄·Ê„« .</p>
+                    <p>„‰’… »’Ì—… ‘»ﬂ…  ÷„ „œ«›⁄«  ⁄‰ ÕﬁÊﬁ «·«‰”«‰ Ê„„À·«  ⁄‰ „‰Ÿ„«  «·„Ã „⁄ «·„œ‰Ì° ÊÂÌ „Œ—Ã«  „‘—Ê⁄  ⁄“Ì“ œÊ— «·„œ«›⁄«  ›Ì «· ’œÌ ··«Œ»«— «·„÷··… Ê«·„„Ê·… „‰ „‰’… ”Ê« ‘»«» «·≈⁄·«„Ì…. <a href="https://www.facebook.com/profile.php?id=100088488217592&mibextid=ZbWKwL" target="_blank">’›Õ… ”Ê« ‘»«» ›Ì «·›Ì”»Êﬂ</a></p>
+                `;
+            } else if (section === 'contact') {
+                htmlContent = `
+                    <h2>« ’· »‰«</h2>
+                    <p> Ê«’· „⁄‰« ⁄»— «·»—Ìœ «·≈·ﬂ —Ê‰Ì: <a href="mailto:basiraweb@gmail.com">basiraweb@gmail.com</a></p>
+                    <p>«·Ì„‰ - „Õ«›Ÿ…  ⁄“</p>
+                    <p>—ﬁ„ «·Â« ›: 733733712</p>
+                `;
+            }
+            content.innerHTML = htmlContent;
+            content.classList.add('show');
+        }
+    </script>
+</body>
+</html>
+

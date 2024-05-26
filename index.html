@@ -1,0 +1,214 @@
+﻿
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بصيرة - تدقيق المعلومات</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap');
+        body {
+            font-family: 'Tajawal', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            direction: rtl;
+            text-align: right;
+            scroll-behavior: smooth;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        header {
+            background-color: rgba(0, 77, 64, 0.8);
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        .menu-icon {
+            display: inline-block;
+            cursor: pointer;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 30px;
+        }
+        .facebook-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 30px;
+            height: 30px;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: none;
+            position: absolute;
+            left: 20px;
+            top: 60px;
+            background-color: rgba(0, 77, 64, 0.8);
+            border-radius: 5px;
+            padding: 10px;
+        }
+        nav ul li {
+            margin: 10px 0;
+        }
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+        .background-wrapper {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            background-image: url('profail.jpg');
+            background-size: cover;
+            background-position: center;
+            z-index: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px; /* سحب الصورة قليلاً للأسفل */
+        }
+        .background-wrapper a {
+            text-decoration: none;
+            color: #ffffff;
+            background-color: rgba(0, 77, 64, 0.8);
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+            display: inline-block;
+        }
+        .content-wrapper {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 20px;
+            display: none; /* إخفاء المحتوى بشكل افتراضي */
+        }
+        .container {
+            width: 80%;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+        }
+        .show {
+            display: block !important;
+        }
+        footer {
+            background-color: rgba(0, 77, 64, 0.8);
+            color: #ffffff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+        <h1>بصيرة</h1>
+        <nav>
+            <ul id="menu">
+                <li><a href="#home" onclick="showContent('home')">الصفحة الرئيسية</a></li>
+                <li><a href="#latest-news" onclick="showContent('latest-news')">آخر الأخبار</a>
+                    <ul>
+                        <li><a href="#news1" onclick="showContent('news1')">موضوع الخبر الأول</a></li>
+                        <li><a href="#news2" onclick="showContent('news2')">موضوع الخبر الثاني</a></li>
+                        <li><a href="#news3" onclick="showContent('news3')">موضوع الخبر الثالث</a></li>
+                    </ul>
+                </li>
+                <li><a href="#about" onclick="showContent('about')">من نحن</a></li>
+                <li><a href="#contact" onclick="showContent('contact')">اتصل بنا</a></li>
+            </ul>
+        </nav>
+        <a href="https://www.facebook.com/profile.php?id=61560058580879&mibextid=ZbWKwL" target="_blank">
+            <img src="222.png" alt="Facebook" class="facebook-icon">
+        </a>
+    </header>
+
+    <div class="background-wrapper" id="background">
+        <a href="#latest-news" onclick="showContent('latest-news')">للانتقال إلى آخر الأخبار والمعلومات</a>
+    </div>
+
+    <div class="content-wrapper" id="content-wrapper">
+        <div id="content" class="container">
+            <!-- المحتوى يظهر هنا -->
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 بصيرة. جميع الحقوق محفوظة.</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById('menu');
+            if (menu.style.display === 'block') {
+                menu.style.display = 'none';
+            } else {
+                menu.style.display = 'block';
+            }
+        }
+
+        function showContent(section) {
+            var content = document.getElementById('content');
+            var contentWrapper = document.getElementById('content-wrapper');
+            var background = document.getElementById('background');
+            var htmlContent = '';
+            if (section === 'home') {
+                htmlContent = '<h2>الصفحة الرئيسية</h2><p>مرحبًا بكم في موقع بصيرة.</p>';
+                background.style.display = 'flex'; // إظهار صورة الخلفية عند الرجوع للصفحة الرئيسية
+                contentWrapper.style.display = 'none'; // إخفاء المحتوى
+            } else if (section === 'latest-news') {
+                htmlContent = '<h2>آخر الأخبار</h2><p>تابعوا أحدث الأخبار والتحليلات.</p>';
+                background.style.display = 'none'; // إخفاء صورة الخلفية
+                contentWrapper.style.display = 'flex'; // إظهار المحتوى
+            } else if (section === 'news1') {
+                htmlContent = '<h2>موضوع الخبر الأول</h2><p>نص الخبر الأول...</p>';
+                background.style.display = 'none'; // إخفاء صورة الخلفية
+                contentWrapper.style.display = 'flex'; // إظهار المحتوى
+            } else if (section === 'news2') {
+                htmlContent = '<h2>موضوع الخبر الثاني</h2><p>نص الخبر الثاني...</p>';
+                background.style.display = 'none'; // إخفاء صورة الخلفية
+                contentWrapper.style.display = 'flex'; // إظهار المحتوى
+            } else if (section === 'news3') {
+                htmlContent = '<h2>موضوع الخبر الثالث</h2><p>نص الخبر الثالث...</p>';
+                background.style.display = 'none'; // إخفاء صورة الخلفية
+                contentWrapper.style.display = 'flex'; // إظهار المحتوى
+            } else if (section === 'about') {
+                htmlContent = `
+                    <h2>من نحن</h2>
+                    <p>منصة بصيرة هي مبادرة لتدقيق المعلومات وكشف الأخبار الزائفة، تهدف إلى تعزيز ثقافة التحقق من الحقائق في المجتمع. توفر أدوات متقدمة للتحقق من صحة المعلومات وتثقيف الجمهور حول أهمية التحقق قبل تداول المعلومات.</p>
+                    <p>منصة بصيرة شبكة تضم مدافعات عن حقوق الانسان وممثلات عن منظمات المجتمع المدني، وهي مخرجات مشروع تعزيز دور المدافعات في التصدي للاخبار المضللة والممولة من منصة سوا شباب الإعلامية. <a href="https://www.facebook.com/profile.php?id=100088488217592&mibextid=ZbWKwL" target="_blank">صفحة سوا شباب في الفيسبوك</a></p>
+                `;
+                background.style.display = 'none'; // إخفاء صورة الخلفية
+                contentWrapper.style.display = 'flex'; // إظهار المحتوى
+            } else if (section === 'contact') {
+                htmlContent = `
+                    <h2>اتصل بنا</h2>
+                    <p>تواصل معنا عبر البريد الإلكتروني: <a href="mailto:basiraweb@gmail.com">basiraweb@gmail.com</a></p>
+                    <p>اليمن - محافظة تعز</p>
+                    <p>
+
+رقم الهاتف: 733733712</p>
+                `;
+                background.style.display = 'none'; // إخفاء صورة الخلفية
+                contentWrapper.style.display = 'flex'; // إظهار المحتوى
+            }
+            content.innerHTML = htmlContent;
+        }
+    </script>
+</body>
+</html>
+
